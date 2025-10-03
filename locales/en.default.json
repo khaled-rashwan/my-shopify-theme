@@ -24,7 +24,23 @@
       "email": "Email",
       "password": "Password",
       "submit": "Sign in",
-      "title": "Login"
+      "title": "Login",
+      "sign_in": "Sign in",
+      "new_customer": "New customer?",
+      "create_account": "Create account"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join the Board Game community",
+      "full_name": "Full Name",
+      "full_name_placeholder": "Enter your full name",
+      "email": "Email Address",
+      "email_placeholder": "Enter your email address",
+      "password": "Password",
+      "password_placeholder": "Enter a strong password",
+      "submit": "Create Account",
+      "have_account": "Already have an account?",
+      "sign_in": "Sign in"
     }
   },
   "collections": {

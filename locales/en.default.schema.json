@@ -31,7 +31,9 @@
     "sidebar": "Sidebar",
     "text": "Text",
     "theme": "Theme",
-    "typography": "Typography"
+    "typography": "Typography",
+    "register": "Register",
+    "login": "Login"
   },
   "labels": {
     "alignment": "Alignment",
@@ -71,6 +73,6 @@
       "title": "Title",
       "subtitle": "Subtitle",
       "normal": "Normal text"
-    },
+    }
   }
 }
