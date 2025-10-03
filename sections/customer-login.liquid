@@ -1,0 +1,244 @@
+{% comment %}
+  This section is used in the customer login template to render the
+  login form.
+
+  https://shopify.dev/docs/storefronts/themes/architecture/templates/customers-login
+{% endcomment %}
+
+<div class="customer-login">
+  <div class="customer-login__container">
+    {% if section.settings.logo %}
+      <div class="customer-login__logo">
+        {{ section.settings.logo | image_url: width: 120 | image_tag }}
+      </div>
+    {% endif %}
+
+    <h1 class="customer-login__title">{{ 'customers.login.title' | t }}</h1>
+    <p class="customer-login__subtitle">{{ 'customers.register.subtitle' | t }}</p>
+
+    {% form 'customer_login' %}
+      {{ form.errors | default_errors }}
+
+      <div class="customer-login__form">
+        <div class="form-field">
+          <label for="login-email">{{ 'customers.login.email' | t }}</label>
+          <div class="form-field__input-wrapper">
+            <span class="form-field__icon">
+              {{ 'icon-email.svg' | inline_asset_content }}
+            </span>
+            <input
+              type="email"
+              name="customer[email]"
+              id="login-email"
+              placeholder="{{ 'customers.register.email_placeholder' | t }}"
+              value="{{ form.email }}"
+              required
+              autocomplete="email"
+            >
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="login-password">{{ 'customers.login.password' | t }}</label>
+          <div class="form-field__input-wrapper">
+            <span class="form-field__icon">
+              {{ 'icon-lock.svg' | inline_asset_content }}
+            </span>
+            <input
+              type="password"
+              name="customer[password]"
+              id="login-password"
+              placeholder="{{ 'customers.register.password_placeholder' | t }}"
+              required
+              autocomplete="current-password"
+            >
+          </div>
+        </div>
+
+        <button type="submit" class="customer-login__submit">
+          {{ 'icon-account.svg' | inline_asset_content }}
+          {{ 'customers.login.sign_in' | t }}
+        </button>
+
+        <p class="customer-login__register">
+          {{ 'customers.login.new_customer' | t }}
+          <a href="{{ routes.account_register_url }}">{{ 'customers.login.create_account' | t }}</a>
+        </p>
+      </div>
+    {% endform %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .customer-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem 1rem;
+  }
+
+  .customer-login__container {
+    width: 100%;
+    max-width: 476px;
+    text-align: center;
+  }
+
+  .customer-login__logo {
+    margin-bottom: 1.5rem;
+  }
+
+  .customer-login__logo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+
+  .customer-login__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--color-foreground);
+  }
+
+  .customer-login__subtitle {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+  }
+
+  .customer-login__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-field {
+    text-align: left;
+  }
+
+  .form-field label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-foreground);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-field__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .form-field__icon {
+    position: absolute;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    color: #9ca3af;
+    pointer-events: none;
+  }
+
+  .form-field__icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .form-field input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    transition: border-color 0.2s;
+  }
+
+  .form-field input::placeholder {
+    color: #9ca3af;
+  }
+
+  .form-field input:focus {
+    outline: none;
+    border-color: #3b82f6;
+  }
+
+  .customer-login__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .customer-login__submit svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .customer-login__submit:hover {
+    background-color: #059669;
+  }
+
+  .customer-login__register {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+  }
+
+  .customer-login__register a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .customer-login__register a:hover {
+    text-decoration: underline;
+  }
+
+  .errors {
+    background-color: #fee;
+    border: 1px solid #fcc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .errors ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .errors li {
+    color: #dc2626;
+    font-size: 0.875rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.login",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    }
+  ]
+}
+{% endschema %}
