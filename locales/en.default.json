@@ -400,7 +400,14 @@
       "last_name": "Last name",
       "email": "Email",
       "password": "Password",
-      "submit": "Create"
+      "submit": "Create",
+      "subtitle": "Join the Board Game community",
+      "full_name": "Full Name",
+      "email_label": "Email Address",
+      "password_label": "Password",
+      "submit_label": "Create Account",
+      "already_have_account": "Already have an account?",
+      "sign_in": "Sign in"
     },
     "reset_password": {
       "title": "Reset account password",

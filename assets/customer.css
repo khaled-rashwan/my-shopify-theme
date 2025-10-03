@@ -17,6 +17,105 @@
   margin-top: 0;
 }
 
+/* Register page styles */
+.register-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.register-logo img,
+.register-logo-placeholder {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.register-subtitle {
+  color: rgba(var(--color-foreground), 0.7);
+  font-size: 1.6rem;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+
+.field-label {
+  text-align: left;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+  margin-top: 2rem;
+  color: rgb(var(--color-foreground));
+}
+
+.field-label:first-of-type {
+  margin-top: 0;
+}
+
+.field-with-icon {
+  position: relative;
+}
+
+.field-icon {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  color: rgba(var(--color-foreground), 0.5);
+  pointer-events: none;
+}
+
+.field-with-icon input {
+  padding-left: 4.5rem;
+}
+
+.register-button {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%) !important;
+  color: white !important;
+  border: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 3rem !important;
+  padding: 1.5rem !important;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.register-button:hover {
+  background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.register-button svg {
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+}
+
+.register-signin-link {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.register-signin-link a {
+  color: rgb(var(--color-link));
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-signin-link a:hover {
+  text-decoration: underline;
+}
+
 .customer form {
   margin-top: 4rem;
 }
@@ -57,6 +156,29 @@
 
 .customer .field:first-of-type {
   margin-top: 0;
+}
+
+.customer .field input {
+  border-radius: 0.8rem;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgba(var(--color-foreground), 0.2);
+  width: 100%;
+  font-size: 1.5rem;
+  transition: border-color 0.3s ease;
+}
+
+.customer .field input:focus {
+  border-color: rgba(var(--color-foreground), 0.5);
+  outline: none;
+}
+
+.customer .field input::placeholder {
+  color: rgba(var(--color-foreground), 0.4);
+  font-size: 1.4rem;
+}
+
+.customer .field label {
+  display: none;
 }
 
 /* Customer Table */
