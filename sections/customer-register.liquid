@@ -7,11 +7,9 @@
 
 <div class="customer-register">
   <div class="customer-register__container">
-    {% if section.settings.logo %}
-      <div class="customer-register__logo">
-        {{ section.settings.logo | image_url: width: 120 | image_tag }}
-      </div>
-    {% endif %}
+    <div class="customer-register__logo">
+      <img src="{{ 'images/logo.png' | asset_url }}" alt="{{ shop.name }}">
+    </div>
 
     <h1 class="customer-register__title">{{ 'customers.register.title' | t }}</h1>
     <p class="customer-register__subtitle">{{ 'customers.register.subtitle' | t }}</p>
@@ -251,12 +249,6 @@
 {% schema %}
 {
   "name": "t:general.register",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo"
-    }
-  ]
+  "settings": []
 }
 {% endschema %}
